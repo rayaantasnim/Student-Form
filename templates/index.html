@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student CRUD</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+  </head>
+  <body>
+    <center>
+      <h1>Student Management</h1>
+      <form id="studentForm">
+        <input id="name" placeholder="Student name" required />
+        <input id="age" type="number" min="1" placeholder="Age" required />
+        <button type="submit">Add Student</button>
+      </form>
+    </center>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="studentList">
+        {% for student in students %}
+        <tr>
+          <td>{{ student.id }}</td>
+          <td>{{ student.name }}</td>
+          <td>{{ student.age }}</td>
+          <td>
+            <button
+              onclick="editStudent({{ student.id }}, {{ student.name | tojson }}, {{ student.age }})"
+            >
+              Edit
+            </button>
+            <button onclick="deleteStudent({{ student.id }})">Delete</button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+
+    <script src="{{ url_for('static', path='/js/script.js') }}"></script>
+  </body>
+</html>

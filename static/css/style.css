@@ -1,0 +1,231 @@
+/* ==========================================================================
+   1. MODERN RESET & GLOBAL STYLES
+   ========================================================================== */
+@import url('https://googleapis.com');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #2d3748;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Override default center tag to act as a proper layout wrapper */
+center {
+    width: 100%;
+    max-width: 800px;
+    display: block;
+}
+
+/* ==========================================================================
+   2. HEADERS & TYPOGRAPHY
+   ========================================================================== */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+    letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: #4f46e5;
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   3. FORM STYLING
+   ========================================================================== */
+#studentForm {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 
+                0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+#studentForm input {
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    background-color: #f8fafc;
+}
+
+#studentForm input[id="name"] {
+    flex: 2;
+    min-width: 200px;
+}
+
+#studentForm input[id="age"] {
+    flex: 1;
+    min-width: 80px;
+}
+
+#studentForm input:focus {
+    border-color: #4f46e5;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+/* ==========================================================================
+   4. BUTTONS
+   ========================================================================== */
+button {
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Add/Submit Button */
+#studentForm button[type="submit"] {
+    background: #4f46e5;
+    color: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+}
+
+#studentForm button[type="submit"]:hover {
+    background: #4338ca;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px -1px rgba(79, 70, 229, 0.3);
+}
+
+#studentForm button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* Table Actions - Edit Button */
+td button:nth-of-type(1) {
+    background-color: #f0fdf4;
+    color: #16a34a;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    margin-right: 0.5rem;
+    border: 1px solid #bbf7d0;
+}
+
+td button:nth-of-type(1):hover {
+    background-color: #16a34a;
+    color: #ffffff;
+}
+
+/* Table Actions - Delete Button */
+td button:nth-of-type(2) {
+    background-color: #fef2f2;
+    color: #dc2626;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    border: 1px solid #fecaca;
+}
+
+td button:nth-of-type(2):hover {
+    background-color: #dc2626;
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   5. DATA TABLE STYLING
+   ========================================================================== */
+table {
+    width: 100%;
+    max-width: 800px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+th {
+    background-color: #f8fafc;
+    color: #64748b;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+td {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background-color 0.2s ease;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover td {
+    background-color: #f8fafc;
+}
+
+/* Align Action buttons neatly */
+td:last-child {
+    display: flex;
+    gap: 0.25rem;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 640px) {
+    #studentForm {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    #studentForm input, 
+    #studentForm button {
+        width: 100%;
+    }
+    
+    th, td {
+        padding: 0.75rem 1rem;
+    }
+}
